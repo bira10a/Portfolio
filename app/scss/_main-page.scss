@@ -1,0 +1,13 @@
+.main-page {
+  
+  &__subtitle {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  &__subtitle-list {
+    overflow: hidden;
+    transition: all 0.3s linear;
+  }
+}
