@@ -24,7 +24,6 @@
       }
 
       slideinner.style.transform = `translateY(-${offset}px)`;
-      console.log(offset);
     };
 
     setInterval(() => {
