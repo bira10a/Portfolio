@@ -1,7 +1,8 @@
-$default: #fff0bd;
-$accent: #2196F3;
-$white: #ffffff;
-$chese: #fdb809;
+$default: #ffffff;
+$accent: #00eeff;
+$mainBgColor: #1f242d;
+$secondBgColor: #323945;
+
 
 
 @mixin r($width) {
@@ -38,16 +39,6 @@ $chese: #fdb809;
   overflow: hidden;
   clip: rect(0 0 0 0);
   position: absolute;
-}
-
-%opensans-300 {
-  font-family: 'OpenSans-Light', sans-serif;
-  font-weight: 300;
-}
-
-%ruda-400 {
-  font-family: 'Ruda-Regular', sans-serif;
-  font-weight: 400;
 }
 
 %bg-img {

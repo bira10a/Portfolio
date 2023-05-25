@@ -4,7 +4,14 @@
   left: 0;
   width: 100%;
   padding: 30px 0 15px 0;
-  background-color: red;
+  background-color: $mainBgColor;
+  z-index: 2;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .header-nav {
@@ -16,7 +23,34 @@
   &__list {
     display: flex;
     align-items: center;
-    gap: 30px;
+    @include adaptiveValue("gap", 60, 30);
+
+    @include r(576) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      background-color: $secondBgColor;
+      z-index: 2;
+      transition: all 0.3s linear;
+      opacity: 0;
+      visibility: hidden;
+      transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+      
+      &--active {
+        transform: perspective(600px) translate(0, 0%) rotateX(0deg);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  
+  &__link--active {
+    color: $accent;
+    transition: all 0.3s linear;
   }
 }
 
@@ -25,13 +59,13 @@
   display: none;
   transition: all 0.2s linear;
 
-  .black-theme & {
-    color: $white;
-  }
+  // .black-theme & {
+  //   color: #fff;
+  // }
 
-  @include r(992) {
+  @include r(576) {
     display: block;
-    order: 2;
+    z-index: 2;
   }
 }
 

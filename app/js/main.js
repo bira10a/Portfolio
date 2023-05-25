@@ -1,8 +1,23 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const heightSectionHeader = window.getComputedStyle(document.querySelector('.header')).height.replace(/\D/ig, ''),
-          sectionMainPage = document.querySelector('.main-page');  
-    sectionMainPage.style.paddingTop = `${heightSectionHeader}px`;
+          sectionMainPage = document.querySelectorAll('.main-page');  
+    sectionMainPage.forEach(i => i.style.paddingTop = `${heightSectionHeader}px`);
+
+
+    const burger = () => {
+      const burger = document.querySelector('.burger'),
+            menu = document.querySelector('.header-nav__list');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('burger--active');
+        menu.classList.toggle('header-nav__list--active');
+      });
+
+
+    };
+
+    burger();
 
 
 
@@ -26,9 +41,109 @@
       slideinner.style.transform = `translateY(-${offset}px)`;
     };
 
-    setInterval(() => {
-      startSlide();
-    }, 1000);
+    // setInterval(() => {
+    //   startSlide();
+    // }, 1000);
+
+
+
+
+    const sliderPage = () => {
+      const wrapper = document.querySelector('.wrapper'),
+            inner = document.querySelector('.inner'),
+            section = document.querySelectorAll('.section'),
+            headerLink = document.querySelectorAll('.header-nav__item a');
+      let offset = 0;
+      let index = 1;
+
+      wrapper.style.cssText = `
+        overflow: hidden;
+        width: 100vw;
+      `;
+      const width = window.getComputedStyle(wrapper).width.replace(/\D/ig, '');
+      inner.style.width = 100 * section.length + '%';
+      inner.style.display = 'flex';
+      inner.style.transition = 'all 0.6s ease-in-out';
+      section.forEach(i => i.style.width = width + 'px');
+
+      const headerActiveLink = (n) => {
+        headerLink.forEach(i => {
+          i.classList.remove('header-nav__link--active');
+        });
+        headerLink[n].classList.add('header-nav__link--active');
+      };
+
+      // document.addEventListener('click', () => {
+      //   if (offset == width * (section.length - 1)) {
+      //     offset = 0;
+      //     index = 1;
+      //   } else {
+      //     offset += +width;
+      //     index += 1;
+      //   }
+
+      //   headerActiveLink(index - 1);
+
+      //   section.forEach(i => i.style.opacity = 0);
+      //   section[index - 1].style.opacity = 1;
+        
+      //   inner.style.transform = `translateX(-${offset}px)`;
+      // });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'ArrowRight') {
+          if (offset == width * (section.length - 1)) {
+            offset = 0;
+            index = 1;
+          } else {
+            offset += +width;
+            index += 1;
+          }
+
+          headerActiveLink(index - 1);
+
+          section.forEach(i => i.style.opacity = 0);
+          section[index - 1].style.opacity = 1;
+
+          inner.style.transform = `translateX(-${offset}px)`;
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'ArrowLeft') {
+          if (offset == 0) {
+            offset = width * (section.length - 1);
+            index = section.length;
+          } else {
+            offset -= +width;
+            index -= 1;
+          }
+
+          headerActiveLink(index - 1);
+
+          section.forEach(i => i.style.opacity = 0);
+          section[index - 1].style.opacity = 1;
+
+          inner.style.transform = `translateX(-${offset}px)`;
+        }
+      });
+
+      headerLink.forEach((link, num) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          index = num + 1;
+          offset = width * num;
+          inner.style.transform = `translateX(-${offset}px)`;
+          headerActiveLink(num);
+          section.forEach(i => i.style.opacity = 0);
+          section[num].style.opacity = 1;
+        });
+      });
+      
+      
+    };
+    sliderPage();
+    
   });
   
   

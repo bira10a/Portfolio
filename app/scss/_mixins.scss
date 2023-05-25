@@ -110,7 +110,7 @@
 $burgerWidth: 24px;
 $burgerHeight: 17px;
 $burgerLineHeight: 3px;
-$burgerColor: #000000;
+$burgerColor: $default;
 @mixin burger {
   width: $burgerWidth; //указываем ширину линий
   height: $burgerHeight; //указываем высоту линий
