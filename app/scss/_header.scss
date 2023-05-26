@@ -23,11 +23,11 @@
   &__list {
     display: flex;
     align-items: center;
-    @include adaptiveValue("gap", 60, 30);
+    @include adaptiveValue("gap", 60, 20);
 
     @include r(576) {
       position: absolute;
-      top: 0;
+      top: -2000%;
       left: 0;
       right: 0;
       height: 100vh;
@@ -38,19 +38,37 @@
       transition: all 0.3s linear;
       opacity: 0;
       visibility: hidden;
-      transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+      font-size: 0;
       
       &--active {
-        transform: perspective(600px) translate(0, 0%) rotateX(0deg);
         opacity: 1;
         visibility: visible;
+        top: 0;
+        font-size: 24px;
+        gap: 50px;
       }
+    }
+  }
+
+  &__link {
+    padding: 5px 10px;
+    outline: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px 40px;
+    transition: all 0.3s linear;
+
+    &:focus {
+      border-color: $accent;
+    }
+
+    &:hover {
+      color: $accent;
+      opacity: 0.7;
     }
   }
   
   &__link--active {
     color: $accent;
-    transition: all 0.3s linear;
   }
 }
 
@@ -59,14 +77,8 @@
   display: none;
   transition: all 0.2s linear;
 
-  // .black-theme & {
-  //   color: #fff;
-  // }
-
   @include r(576) {
     display: block;
     z-index: 2;
   }
 }
-
-
