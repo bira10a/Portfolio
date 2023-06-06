@@ -1,17 +1,35 @@
 @font-face {
-  font-family: 'OpenSans-Light';
-  font-weight: 300;
+  font-family: 'Comfortaa';
+  font-weight: 500;
   font-style: normal;
-  src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
-       url('../fonts/OpenSans-Light.woff') format('woff');
+  src: url('../fonts/Comfortaa-Medium.woff2') format('woff2'),
+       url('../fonts/Comfortaa-Medium.woff') format('woff');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ruda-Regular';
+  font-family: 'KellySlab';
   font-weight: 400;
   font-style: normal;
-  src: url('../fonts/Ruda-Regular.woff2') format('woff2'),
-       url('../fonts/Ruda-Regular.woff') format('woff');
+  src: url('../fonts/KellySlab-Regular.woff2') format('woff2'),
+       url('../fonts/KellySlab-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Philosopher';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/Philosopher-Bold.woff2') format('woff2'),
+       url('../fonts/Philosopher-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Philosopher';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Philosopher-Regular.woff2') format('woff2'),
+       url('../fonts/Philosopher-Regular.woff') format('woff');
   font-display: swap;
 }

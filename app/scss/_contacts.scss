@@ -1,0 +1,35 @@
+.contacts {
+  background-color: $secondBgColor;
+}
+
+.contacts-form {
+  height: 50vh;
+  display: grid;
+  grid-template-columns: minmax(100px, 200px) minmax(100px, 200px) minmax(100px, 200px) 1fr;
+  grid-template-rows: 50px 50px 50px 150px;
+  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) 1fr;
+  // grid-template-rows: repeat(3, 50px) 200px;
+  gap: 30px;
+
+  &__item {
+    display: flex;
+
+    &:last-child {
+      // grid-column: span 3;
+    }
+  }
+  
+  &__label {
+    // display: flex;
+    background-color: $mainBgColor;
+    // flex: 1 1 auto;
+
+    & input, textarea {
+      // flex: 1 1 auto;
+    }
+
+    & textarea {
+      resize: none;
+    }
+  }
+}

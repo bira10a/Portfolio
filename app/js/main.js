@@ -1,8 +1,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const heightSectionHeader = window.getComputedStyle(document.querySelector('.header')).height.replace(/\D/ig, ''),
-          sectionMainPage = document.querySelectorAll('.main-page');  
-    sectionMainPage.forEach(i => i.style.paddingTop = `${heightSectionHeader}px`);
+          section = document.querySelectorAll('.section');  
+    section.forEach(i => i.style.paddingTop = `${heightSectionHeader}px`);
 
 
     const burger = () => {

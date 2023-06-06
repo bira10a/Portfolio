@@ -28,6 +28,7 @@
   }
 
   &__subtitle-list {
+    font-family: 'KellySlab', sans-serif;
     overflow: hidden;
     transition: all 0.3s linear;
 
@@ -43,8 +44,8 @@
   }
 
   &__title {
+    font-weight: 700;
     @include adaptiveValue("font-size", 48, 20);
-    font-weight: 600;
     margin: 5px 0;
   }
 
