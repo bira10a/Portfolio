@@ -7,7 +7,18 @@ const imagemin = require('gulp-imagemin');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const svgSprite = require('gulp-svg-sprite');
+const fonter = require('gulp-fonter');
+const ttf2woff2 = require('gulp-ttf2woff2');
 
+function fonts() {
+  return src('app/fonts/src/*.*')
+    .pipe(fonter({
+      formats: ['woff', 'ttf']
+    }))
+    .pipe(src('app/fonts/*.ttf'))
+    .pipe(ttf2woff2())
+    .pipe(dest('app/fonts'))
+}
 
 function svgSprites() {
   return src('app/images/icon/*.svg') // выбираем в папке с иконками все файлы с расширением svg
@@ -96,6 +107,7 @@ exports.watching = watching;
 exports.images = images;
 exports.svgSprites = svgSprites;
 exports.cleanDist = cleanDist;
+exports.fonts = fonts;
 exports.build = series(cleanDist, images, build);
 
 exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);

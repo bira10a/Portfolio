@@ -18,6 +18,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-ttf2woff2": "^4.0.1",
+    "gulp-fonter": "^0.3.0",
     "sass": "^1.43.4"
   }
 }

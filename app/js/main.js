@@ -94,6 +94,34 @@
         section.forEach(i => i.style.width = width + 'px');
       });
 
+      window.addEventListener('wheel', (e) => {
+        if (e.deltaY > 0) {
+          if (offset == width * (section.length - 1)) {
+            offset = 0;
+            index = 1;
+          } else {
+            offset += +width;
+            index += 1;
+          }
+        } else {
+          if (offset == 0) {
+            offset = width * (section.length - 1);
+            index = section.length;
+          } else {
+            offset -= +width;
+            index -= 1;
+          }
+        }
+
+
+        headerActiveLink(index - 1);
+
+        section.forEach(i => i.style.opacity = 0);
+        section[index - 1].style.opacity = 1;
+        
+        inner.style.transform = `translateX(-${offset}px)`;
+      });
+
       // document.addEventListener('click', () => {
       //   if (offset == width * (section.length - 1)) {
       //     offset = 0;
