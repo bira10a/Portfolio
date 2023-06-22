@@ -67,25 +67,29 @@
             <form class="contacts__form contacts-form" action="#">
               <div class="contacts-form__item">
                 <label class="contacts-form__label" for="name">
-                  <input class="contacts-form__input" type="text" name="name">
+                  <input class="contacts-form__input" type="text" name="name" required>
+                  <span class="contacts-form__text">Ваше имя</span>
                 </label>
               </div>
 
               <div class="contacts-form__item">
                 <label class="contacts-form__label" for="email">
-                  <input class="contacts-form__input" type="email" name="email">
+                  <input class="contacts-form__input" type="email" name="email" required>
+                  <span class="contacts-form__text">Ваш email</span>
                 </label>
               </div>
 
               <div class="contacts-form__item">
                 <label class="contacts-form__label" for="number">
-                  <input class="contacts-form__input" type="tel" name="number">
+                  <input class="contacts-form__input" type="tel" name="number" required>
+                  <span class="contacts-form__text">Ваш телефон</span>
                 </label>
               </div>
 
               <div class="contacts-form__item">
                 <label class="contacts-form__label" for="text">
-                  <textarea class="contacts-form__textarea" name="text"></textarea>
+                  <textarea class="contacts-form__textarea" name="text" required></textarea>
+                  <span class="contacts-form__text">Опишите, что Вы хотите</span>
                 </label>
               </div>
             </form>
