@@ -193,6 +193,26 @@
     };
     sliderPage();
     
+
+
+
+    const input = document.querySelectorAll('.contacts-form__input'),
+          span = document.querySelectorAll('.contacts-form__text');
+    
+    input.forEach(i => {
+
+      i.addEventListener('input', () => {
+        if (i.value) {
+          span.forEach(span => span.style.opacity = 0);
+          console.log(`hello`);
+        } else {
+          span.forEach(span => span.style.opacity = 1);
+        }
+
+      });
+
+
+    })
   });
   
   
